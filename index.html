@@ -17,7 +17,7 @@
             <a href="#" class="nav-link active" data-page="home">Beranda</a>
             <a href="#" class="nav-link" data-page="kalkulator">Kalkulator</a>
             <a href="#" class="nav-link" data-page="resep">Resep</a>
-            <a href="#" class="nav-link" data-page="log">Log Makanan</a>
+            <a href="#" class="nav-link" data-page="log-main">Log Makanan</a>
             <a href="#" class="nav-link" data-page="tentang">Tentang</a>
         </nav>
     </header>
@@ -136,72 +136,157 @@
                 </div> 
                 <div id="rencana" class="tab-pane hidden">
                     <div class="plan-section">
-                        <h2><i class="fas fa-calendar-alt"></i> Rencana Makan Mingguan Anda</h2>
-                        <p class="subtitle-plan">Rencana ini disesuaikan berdasarkan target kalori Anda.</p>
-                        
-                        <div class="plan-card">
-                            <div class="day-header">
-                                <h3>Senin</h3>
-                                <span class="total-cal-day">~1800 Kalori</span>
+                        <h2><i class="fas fa-calendar-check"></i> Rencana Makan Harian</h2>
+                        <p class="subtitle-plan">Rencana ini disesuaikan berdasarkan target kalori Anda (misalnya 1800 Kkal).</p>
+
+                        <div class="meal-plan-detail">
+                            
+                            <div class="meal-block">
+                                <div class="meal-header">
+                                    <h3>Sarapan (07:00)</h3>
+                                    <span class="total-cal total-cal-sarapan">450 kalori</span>
+                                </div>
+                                <ul class="food-list">
+                                    <li>Oatmeal dengan buah beri <span class="food-cal">250 kal</span></li>
+                                    <li>Telur rebus (2 butir) <span class="food-cal">160 kal</span></li>
+                                    <li>Teh hijau tanpa gula <span class="food-cal">0 kal</span></li>
+                                </ul>
                             </div>
-                            <ul class="meal-list">
-                                <li><i class="fas fa-sun"></i> Sarapan: Yogurt Greek dengan Buah Berry (300 Kal)</li>
-                                <li><i class="fas fa-cloud-sun"></i> Makan Siang: Salad Ayam Caesar (550 Kal)</li>
-                                <li><i class="fas fa-moon"></i> Makan Malam: Nasi Merah dan Ikan Kukus (700 Kal)</li>
-                            </ul>
-                            <button class="btn-view-detail">Lihat Detail Resep</button>
+                            
+                            <div class="meal-block">
+                                <div class="meal-header">
+                                    <h3>Snack Pagi (10:00)</h3>
+                                    <span class="total-cal total-cal-snack-pagi">150 kalori</span>
+                                </div>
+                                <ul class="food-list">
+                                    <li>Apel <span class="food-cal">95 kal</span></li>
+                                    <li>Kacang almond (10 biji) <span class="food-cal">55 kal</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-block">
+                                <div class="meal-header">
+                                    <h3>Makan Siang (13:00)</h3>
+                                    <span class="total-cal total-cal-makan-siang">600 kalori</span>
+                                </div>
+                                <ul class="food-list">
+                                    <li>Nasi merah (1 porsi) <span class="food-cal">200 kal</span></li>
+                                    <li>Ayam panggang (150g) <span class="food-cal">250 kal</span></li>
+                                    <li>Sayuran kukus <span class="food-cal">100 kal</span></li>
+                                    <li>Buah potong <span class="food-cal">50 kal</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-block">
+                                <div class="meal-header">
+                                    <h3>Snack Sore (16:00)</h3>
+                                    <span class="total-cal total-cal-snack-sore">120 kalori</span>
+                                </div>
+                                <ul class="food-list">
+                                    <li>Yoghurt rendah lemak <span class="food-cal">120 kal</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-block">
+                                <div class="meal-header">
+                                    <h3>Makan Malam (19:00)</h3>
+                                    <span class="total-cal total-cal-makan-malam">550 kalori</span>
+                                </div>
+                                <ul class="food-list">
+                                    <li>Ikan bakar (150g) <span class="food-cal">300 kal</span></li>
+                                    <li>Ubi jalar kukus <span class="food-cal">150 kal</span></li>
+                                    <li>Salad sayuran <span class="food-cal">100 kal</span></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-footer">
+                                <button class="btn-print"><i class="fas fa-print"></i> Cetak Rencana Makan</button>
+                            </div>
+
                         </div>
-                        <div class="plan-generation">
-                            <button class="btn-generate"><i class="fas fa-magic"></i> Buat Rencana Makan Baru</button>
                         </div>
-                    </div>
                 </div>
                 <div id="log-tab" class="tab-pane hidden">
-                    <div class="log-section">
-                        <h2><i class="fas fa-book"></i> Catat Log Makanan Harian Anda</h2>
-                        <p class="subtitle-plan">Lihat riwayat dan pantau kemajuan asupan nutrisi Anda.</p>
-
-                        <div class="log-form-card">
-                            <h3>Catat Makanan Hari Ini</h3>
-                            <div class="form-group">
-                                <label for="meal-type">Waktu Makan</label>
-                                <select id="meal-type">
-                                    <option value="sarapan">Sarapan</option>
-                                    <option value="makan_siang">Makan Siang</option>
-                                    <option value="makan_malam">Makan Malam</option>
-                                    <option value="snack">Camilan</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="food-name">Nama Makanan</label>
-                                <input type="text" id="food-name" placeholder="Contoh: Nasi Goreng, Telur Rebus">
-                            </div>
-                            <div class="form-group">
-                                <label for="calories-log">Kalori (Kkal)</label>
-                                <input type="number" id="calories-log" placeholder="Contoh: 350">
-                            </div>
-                            <button class="btn-log-add"><i class="fas fa-plus"></i> Tambahkan Makanan</button>
+                    <div class="log-tabel-container">
+                        <div class="log-header-detail">
+                            <h2><i class="fas fa-clipboard-list"></i> Log Makanan Hari Ini</h2>
+                            <button class="btn-add-food"><i class="fas fa-plus"></i> Tambah Makanan</button>
                         </div>
+                        
+                        <p class="log-date">Rabu, 15 November 2023</p>
 
-                        <h3 class="log-history-title">Riwayat Log Makanan</h3>
-                        <ul class="log-history-list">
-                            <li><span>24 Oktober 2025:</span> Total 1780 Kkal</li>
-                            <li><span>23 Oktober 2025:</span> Total 1850 Kkal</li>
-                        </ul>
-                    </div>
+                        <table class="log-table">
+                            <thead>
+                                <tr>
+                                    <th>Waktu</th>
+                                    <th>Makanan</th>
+                                    <th>Kalori</th>
+                                    <th>Karbohidrat</th>
+                                    <th>Protein</th>
+                                    <th>Lemak</th>
+                                    <th></th> </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="log-item sarapan-log">
+                                    <td>Sarapan</td>
+                                    <td>Oatmeal dengan buah beri</td>
+                                    <td class="cal-value">250</td>
+                                    <td>45g</td>
+                                    <td>8g</td>
+                                    <td>5g</td>
+                                    <td><i class="fas fa-trash-alt delete-icon"></i></td>
+                                </tr>
+                                <tr class="log-item sarapan-log">
+                                    <td>Sarapan</td>
+                                    <td>Telur rebus (2 butir)</td>
+                                    <td class="cal-value">160</td>
+                                    <td>1g</td>
+                                    <td>12g</td>
+                                    <td>11g</td>
+                                    <td><i class="fas fa-trash-alt delete-icon"></i></td>
+                                </tr>
+                                <tr class="log-item makan-siang-log">
+                                    <td>Makan Siang</td>
+                                    <td>Nasi merah + ayam panggang</td>
+                                    <td class="cal-value">450</td>
+                                    <td>55g</td>
+                                    <td>30g</td>
+                                    <td>12g</td>
+                                    <td><i class="fas fa-trash-alt delete-icon"></i></td>
+                                </tr>
+                                <tr class="log-item snack-sore-log">
+                                    <td>Snack Sore</td>
+                                    <td>Yoghurt rendah lemak</td>
+                                    <td class="cal-value">120</td>
+                                    <td>15g</td>
+                                    <td>8g</td>
+                                    <td>2g</td>
+                                    <td><i class="fas fa-trash-alt delete-icon"></i></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" class="total-label">Total Hari Ini:</td>
+                                    <td class="total-cal-value">980</td>
+                                    <td class="total-macro-value">116g</td>
+                                    <td class="total-macro-value">58g</td>
+                                    <td class="total-macro-value">30g</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        </div>
                 </div>
                 </div>
         </div>
         <div id="resep" class="page-content hidden">
             <h2 class="section-title"><i class="fas fa-search"></i> Cari Resep Favorit Anda</h2>
             <p>Di sini akan ditampilkan daftar lengkap semua resep yang tersedia untuk filter dan pencarian.</p>
-            <div class="recipes-grid">
-                </div>
         </div>
         
-        <div id="log" class="page-content hidden">
+        <div id="log-main" class="page-content hidden">
             <h2 class="section-title"><i class="fas fa-history"></i> Log Makanan Mingguan</h2>
-            <p>Ini adalah tampilan log harian yang ringkas.</p>
+            <p>Ini adalah tampilan log harian yang ringkas (klik Log Makanan di navbar utama).</p>
         </div>
 
         <div id="tentang" class="page-content hidden">
