@@ -1,105 +1,48 @@
-/* Anda harus membuat file CSS baru dengan styling yang diinspirasi dari screenshot */
-
-/* GLOBAL & BODY */
-body {
-    background-color: #f7f9fc; /* Background abu-abu muda */
-    font-family: Arial, sans-serif;
-    color: #333;
-    padding-top: 60px; /* Jarak untuk fixed header */
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* NAVBAR */
-.navbar {
-    background-color: #4CAF50; /* Warna hijau utama */
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-/* ... styling navigasi dan link ... */
-
-/* TABS (Kalkulator, Rencana Makan, dll.) */
-.tabs a {
-    /* Styling untuk tab aktif seperti di screenshot */
-    border-bottom: 3px solid #4CAF50;
-    padding: 10px 15px;
-    margin-right: 15px;
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-}
-.tabs { margin-bottom: 20px; }
-
-/* CALCULATOR LAYOUT */
-.calculator-layout {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.input-panel, .result-panel {
+/* Styling Output JavaScript di Kolom Kanan */
+.result-panel {
+    /* Pastikan kolom hasil terlihat bagus */
     background: white;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 30px;
-    flex: 1; /* Agar kedua kolom sama lebar */
 }
 
-/* FORM STYLING */
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-input[type="number"], select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-#calculate-btn {
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1rem;
-}
-
-/* RESEP GRID */
-.recipes-grid {
+.macro-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.macro-item {
+    background: #f0f0f0; /* Warna latar belakang ringan untuk setiap makro */
+    padding: 15px 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.macro-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50; /* Warna hijau untuk nilai */
+    margin-bottom: 5px;
+}
+
+.macro-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.disclaimer-small {
+    font-size: 0.8rem;
+    color: #888;
     margin-top: 20px;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
 }
-.recipe-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
-}
-.recipe-icon {
-    /* Styling untuk ikon hijau terang di atas kartu */
-    background-color: #e6ffe6; 
-    color: #4CAF50;
-    /* ... lainnya ... */
-}
-/* ... styling tag resep (sarapan, protein, dll.) ... */
+
+/* Pastikan styling navbar dan form lainnya juga ada! */
+/* (Lihat panduan CSS yang saya berikan sebelumnya untuk navbar, form, dan recipes-grid) */
