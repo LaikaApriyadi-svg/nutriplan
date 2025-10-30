@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ------------------------------------
-    // 1. LOGIKA KALKULATOR NUTRISI (Fungsi utama)
+    // 1. LOGIKA KALKULATOR NUTRISI
     // ------------------------------------
     const calculateBtn = document.getElementById('calculate-btn');
     if (calculateBtn) {
@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calculateNutrition() {
-        // [FUNGSI CALCULATE NUTRITION LENGKAP ADA DI SINI]
-        // (Gunakan kode lengkap dari respons sebelumnya, termasuk validasi dan output HTML)
-
         const gender = document.getElementById('gender').value;
         const age = parseInt(document.getElementById('age').value);
         const weight = parseFloat(document.getElementById('weight').value);
@@ -27,7 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 2. Tentukan Multiplier Aktivitas (PAL - Physical Activity Level)
+        // Hitung BMR (Mifflin-St Jeor)
+        let bmr = 0;
+        if (gender === 'male') {
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+        } else { // female
+            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+        }
+
+        // TDEE
         let activityMultiplier = 0;
         switch (activity) {
             case 'sedentary': activityMultiplier = 1.2; break;
@@ -36,55 +41,29 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'active': activityMultiplier = 1.725; break;
             case 'very_active': activityMultiplier = 1.9; break;
         }
-
-        // 3. Hitung BMR (Basal Metabolic Rate) - Rumus Mifflin-St Jeor
-        let bmr = 0;
-        if (gender === 'male') {
-            bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-        } else { // female
-            bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-        }
-
-        // 4. Hitung TDEE (Total Daily Energy Expenditure)
         let tdee = bmr * activityMultiplier;
 
-        // 5. Sesuaikan TDEE berdasarkan Tujuan Diet (Kalori Final)
+        // Sesuaikan Kalori berdasarkan Tujuan Diet
         let finalCalories = tdee;
         let goalAdjustment = '';
         let goalDescription = '';
 
         switch (goal) {
-            case 'maintain':
-                goalDescription = 'Mempertahankan Berat Badan';
-                break;
-            case 'mild_loss':
-                finalCalories -= 300; 
-                goalAdjustment = 'Defisit 300 Kalori';
-                goalDescription = 'Penurunan Berat Badan Ringan';
-                break;
-            case 'fast_loss':
-                finalCalories -= 500; 
-                goalAdjustment = 'Defisit 500 Kalori';
-                goalDescription = 'Penurunan Berat Badan Cepat';
-                break;
-            case 'gain':
-                finalCalories += 300;
-                goalAdjustment = 'Surplus 300 Kalori';
-                goalDescription = 'Penambahan Berat Badan';
-                break;
+            case 'maintain': goalDescription = 'Mempertahankan Berat Badan'; break;
+            case 'mild_loss': finalCalories -= 300; goalAdjustment = 'Defisit 300 Kalori'; goalDescription = 'Penurunan Berat Badan Ringan'; break;
+            case 'fast_loss': finalCalories -= 500; goalAdjustment = 'Defisit 500 Kalori'; goalDescription = 'Penurunan Berat Badan Cepat'; break;
+            case 'gain': finalCalories += 300; goalAdjustment = 'Surplus 300 Kalori'; goalDescription = 'Penambahan Berat Badan'; break;
         }
         
-        // Safety net: Batasan Kalori
         if (finalCalories < 1200 && gender === 'female') finalCalories = 1200;
         if (finalCalories < 1500 && gender === 'male') finalCalories = 1500;
 
-
-        // 6. Hitung Makronutrien (Distribusi: Protein 30%, Lemak 25%, Karbohidrat 45%)
+        // Hitung Makronutrien (Distribusi: Protein 30%, Lemak 25%, Karbohidrat 45%)
         const proteinGrams = Math.round((finalCalories * 0.30) / 4);
         const fatGrams = Math.round((finalCalories * 0.25) / 9);
         const carbGrams = Math.round((finalCalories * 0.45) / 4);
 
-        // 7. Tampilkan Hasil (Menggunakan styling class dari CSS)
+        // Tampilkan Hasil
         const resultHtml = `
             <div class="result-box">
                 <p>Target Anda: **${goalDescription}**</p>
@@ -127,11 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const targetTab = e.target.getAttribute('data-tab');
 
-            // Kelola Kelas 'active' pada link tab
             tabLinks.forEach(item => item.classList.remove('active'));
             e.target.classList.add('active');
 
-            // Tampilkan/Sembunyikan Konten Tab
             const panes = document.querySelectorAll('.tab-pane');
             panes.forEach(pane => {
                 if (pane.id === targetTab) {
@@ -150,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar .nav-link');
     const pageContents = document.querySelectorAll('.page-content');
     
-    // Fungsi untuk menyembunyikan semua page kecuali yang ditargetkan
     const switchPage = (targetId) => {
         pageContents.forEach(page => {
             if (page.id === targetId) {
@@ -169,25 +145,24 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const targetPage = e.target.getAttribute('data-page');
 
-            // 1. Kelola Kelas 'active' pada link navbar
             navLinks.forEach(item => item.classList.remove('active'));
             e.target.classList.add('active');
 
-            // 2. Tampilkan Page Konten yang Tepat
             let contentIdToShow = targetPage;
             
-            // Logika khusus: Jika klik 'Beranda' atau 'Kalkulator', tampilkan konten Kalkulator/Home
             if (targetPage === 'beranda' || targetPage === 'kalkulator' || targetPage === 'home') {
                  contentIdToShow = 'home';
-            } else if (targetPage === 'log') {
-                // Di sini Anda bisa memutuskan apakah Log Makanan ada di tab utama atau tab sekunder
-                // Untuk sementara, kita tampilkan halaman Log Makanan terpisah:
-                contentIdToShow = 'log'; 
+            } else if (targetPage === 'log-main') {
+                contentIdToShow = 'log-main'; 
+            } else if (targetPage === 'resep') {
+                contentIdToShow = 'resep'; 
+            } else if (targetPage === 'tentang') {
+                contentIdToShow = 'tentang'; 
             }
 
             switchPage(contentIdToShow);
 
-            // Optional: Jika pindah ke Kalkulator/Home, pastikan tab Kalkulator sekunder yang aktif.
+            // Jika pindah ke Beranda/Kalkulator, pastikan tab Kalkulator sekunder yang aktif.
             if (contentIdToShow === 'home') {
                 document.querySelector('.tabs a.tab-link[data-tab="kalkulator-tab"]').click();
             }
