@@ -6,10 +6,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-    background-color: #f7f9fc; /* Background abu-abu muda */
+    background-color: #f7f9fc; 
     color: #333;
     line-height: 1.6;
-    padding-top: 70px; /* Jarak untuk header fixed */
+    padding-top: 70px; 
 }
 .container {
     max-width: 1200px;
@@ -65,7 +65,19 @@ h2 { color: #4CAF50; }
 .tabs a.active {
     color: #4CAF50;
     border-bottom: 3px solid #4CAF50;
-    margin-bottom: -2px; /* Untuk menutupi garis bawah utama */
+    margin-bottom: -2px; 
+}
+
+/* LOGIKA TAB & PAGE SWITCHING */
+.tab-pane, .page-content {
+    padding-top: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.tab-pane.hidden, .page-content.hidden {
+    display: none; 
+    opacity: 0;
 }
 
 /* CALCULATOR LAYOUT (TATA LETAK 2 KOLOM) */
@@ -79,7 +91,7 @@ h2 { color: #4CAF50; }
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    flex: 1; /* Agar kedua kolom sama lebar */
+    flex: 1; 
 }
 .input-panel h2, .result-panel h2 {
     margin-top: 0;
@@ -98,7 +110,7 @@ h2 { color: #4CAF50; }
     color: #555;
     margin-top: 10px;
 }
-input[type="number"], select {
+input[type="number"], input[type="text"], select {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -106,7 +118,7 @@ input[type="number"], select {
     font-size: 1rem;
     transition: border-color 0.3s;
 }
-input[type="number"]:focus, select:focus {
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
     border-color: #4CAF50;
     outline: none;
 }
@@ -147,7 +159,7 @@ input[type="number"]:focus, select:focus {
     margin-top: 15px;
 }
 .macro-item {
-    background: #f0f8f0; /* Hijau sangat muda */
+    background: #f0f8f0; 
     padding: 15px 10px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -203,6 +215,167 @@ input[type="number"]:focus, select:focus {
 .tag-sarapan { background-color: #ffe0b2; color: #e65100; }
 .tag-protein { background-color: #c8e6c9; color: #388e3c; }
 
+
+/* RENCANA MAKAN & LOG MAKANAN STYLING */
+.plan-section, .log-tabel-container, .log-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+.subtitle-plan {
+    color: #777;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* RENCANA MAKAN DETAIL STYLING */
+.meal-plan-detail {
+    margin-top: 20px;
+}
+.meal-block {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    overflow: hidden; 
+    border-left: 5px solid #5cb85c; 
+}
+.meal-header {
+    background-color: #e6ffe6; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+.meal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #388e3c; 
+}
+.total-cal {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #388e3c; 
+}
+.food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.food-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+    color: #444;
+}
+.food-list li:last-child { border-bottom: none; }
+.food-cal {
+    font-weight: bold;
+    color: #666;
+}
+.plan-footer { text-align: center; padding: 20px 0; }
+.btn-print {
+    background-color: #ff9800; 
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.btn-print:hover { background-color: #fb8c00; }
+.btn-print i { margin-right: 8px; }
+
+
+/* --- LOG MAKANAN TABEL STYLING --- */
+.log-tabel-container { padding: 30px; }
+.log-header-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+.log-header-detail h2 i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+.log-date {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+}
+.btn-add-food {
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+.btn-add-food:hover { background-color: #0056b3; }
+.btn-add-food i { margin-right: 8px; }
+
+/* TABEL STYLING */
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.log-table thead th {
+    background-color: #f0f0f0;
+    color: #555;
+    text-align: left;
+    padding: 12px 8px;
+    font-weight: 600;
+    border-bottom: 2px solid #ccc;
+}
+.log-table tbody td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+}
+.log-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* STYLING KHUSUS ANGKA KALORI DAN MAKRO */
+.log-table .cal-value {
+    font-weight: bold;
+    color: #4CAF50; 
+}
+.log-table tfoot td {
+    font-weight: bold;
+    padding: 15px 8px;
+    border-top: 2px solid #ccc;
+}
+.log-table tfoot .total-label {
+    text-align: right;
+    font-size: 1.1rem;
+    color: #333;
+}
+.log-table tfoot .total-cal-value { color: #4CAF50; }
+.log-table tfoot .total-macro-value { color: #333; }
+
+/* IKON HAPUS */
+.delete-icon {
+    color: #e74c3c; 
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.delete-icon:hover {
+    color: #c0392b;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -215,7 +388,7 @@ footer {
 /* MEDIA QUERIES (RESPONSIVITAS) */
 @media (max-width: 992px) {
     .calculator-layout {
-        flex-direction: column; /* Ubah ke tumpukan kolom di layar tablet */
+        flex-direction: column; 
     }
 }
 @media (max-width: 600px) {
