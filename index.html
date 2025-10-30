@@ -3,269 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Publish Website - NutriCalc</title>
-    
+    <title>NutriPlan - Kalkulator Nutrisi Harian</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css"> 
-    
+    <link rel="stylesheet" href="nutriplan.css"> 
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-cloud-upload-alt"></i> Panduan Publish Website</h1>
-            <p class="subtitle">Pelajari berbagai cara untuk mempublish website kalkulator BMR dan nutrisi Anda agar dapat diakses melalui URL</p>
-        </header>
-
-        <div class="methods-grid">
-            <div class="method-card">
-                <div class="method-icon">
-                    <i class="fab fa-github"></i>
-                </div>
-                <h2 class="method-title">GitHub Pages</h2>
-                <p class="method-description">
-                    Hosting gratis dari GitHub untuk proyek website statis. Cocok untuk pemula dan proyek personal.
-                </p>
-                <div class="method-steps">
-                    <ol>
-                        <li>Buat akun GitHub</li>
-                        <li>Buat repository baru</li>
-                        <li>Upload file HTML, CSS, JS</li>
-                        <li>Aktifkan GitHub Pages</li>
-                        <li>Akses website via URL</li>
-                    </ol>
-                </div>
-                <a href="https://pages.github.com" target="_blank" class="btn btn-free">
-                    <i class="fas fa-external-link-alt"></i> Kunjungi GitHub Pages
-                </a>
-            </div>
-
-            <div class="method-card">
-                <div class="method-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h2 class="method-title">Netlify</h2>
-                <p class="method-description">
-                    Platform hosting modern dengan deploy otomatis dari GitHub, GitLab, atau Bitbucket.
-                </p>
-                <div class="method-steps">
-                    <ol>
-                        <li>Daftar akun Netlify</li>
-                        <li>Connect dengan GitHub</li>
-                        <li>Pilih repository</li>
-                        <li>Deploy otomatis</li>
-                        <li>Dapatkan URL custom</li>
-                    </ol>
-                </div>
-                <a href="https://www.netlify.com" target="_blank" class="btn btn-free">
-                    <i class="fas fa-external-link-alt"></i> Kunjungi Netlify
-                </a>
-            </div>
-
-            <div class="method-card">
-                <div class="method-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h2 class="method-title">Vercel</h2>
-                <p class="method-description">
-                    Platform hosting yang powerful dengan performa tinggi, cocok untuk website modern.
-                </p>
-                <div class="method-steps">
-                    <ol>
-                        <li>Buat akun Vercel</li>
-                        <li>Import project dari GitHub</li>
-                        <li>Konfigurasi build settings</li>
-                        <li>Deploy dengan satu klik</li>
-                        <li>URL langsung aktif</li>
-                    </ol>
-                </div>
-                <a href="https://vercel.com" target="_blank" class="btn btn-free">
-                    <i class="fas fa-external-link-alt"></i> Kunjungi Vercel
-                </a>
-            </div>
-
-            <div class="method-card">
-                <div class="method-icon">
-                    <i class="fas fa-server"></i>
-                </div>
-                <h2 class="method-title">Hosting Berbayar</h2>
-                <p class="method-description">
-                    Hosting berbayar dengan fitur lengkap, domain gratis, dan performa optimal.
-                </p>
-                <div class="method-steps">
-                    <ol>
-                        <li>Pilih paket hosting</li>
-                        <li>Daftar domain</li>
-                        <li>Upload file via cPanel/FTP</li>
-                        <li>Konfigurasi database (jika perlu)</li>
-                        <li>Website online dengan domain sendiri</li>
-                    </ol>
-                </div>
-                <a href="https://www.hostinger.co.id" target="_blank" class="btn btn-premium">
-                    <i class="fas fa-external-link-alt"></i> Cek Hostinger
-                </a>
-            </div>
-
-            <div class="method-card">
-                <div class="method-icon">
-                    <i class="fab fa-google"></i>
-                </div>
-                <h2 class="method-title">Firebase Hosting</h2>
-                <p class="method-description">
-                    Hosting dari Google dengan CDN global, SSL gratis, dan integrasi dengan layanan Firebase lainnya.
-                </p>
-                <div class="method-steps">
-                    <ol>
-                        <li>Buat project di Firebase</li>
-                        <li>Install Firebase CLI</li>
-                        <li>Inisialisasi project</li>
-                        <li>Deploy ke Firebase</li>
-                        <li>Akses via URL Firebase</li>
-                    </ol>
-                </div>
-                <a href="https://firebase.google.com/docs/hosting" target="_blank" class="btn btn-free">
-                    <i class="fas fa-external-link-alt"></i> Pelajari Firebase
-                </a>
-            </div>
-
-            <div class="method-card">
-                <div class="method-icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-                <h2 class="method-title">Cloudflare Pages</h2>
-                <p class="method-description">
-                    Platform JAMstack untuk frontend developer dengan deploy yang cepat dan global network.
-                </p>
-                <div class="method-steps">
-                    <ol>
-                        <li>Daftar akun Cloudflare</li>
-                        <li>Connect dengan Git provider</li>
-                        <li>Pilih repository</li>
-                        <li>Setup build settings</li>
-                        <li>Deploy dan dapatkan URL</li>
-                    </ol>
-                </div>
-                <a href="https://pages.cloudflare.com" target="_blank" class="btn btn-free">
-                    <i class="fas fa-external-link-alt"></i> Kunjungi Cloudflare
-                </a>
-            </div>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-apple-alt"></i> 
+            <span>NutriPlan</span>
         </div>
+        <nav>
+            <a href="#" class="active">Beranda</a>
+            <a href="#">Kalkulator</a>
+            <a href="#">Resep</a>
+            <a href="#">Log Makanan</a>
+            <a href="#">Tentang</a>
+        </nav>
+    </header>
 
-        <div class="comparison">
-            <h2><i class="fas fa-balance-scale"></i> Perbandingan Platform Hosting</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Gratis</th>
-                        <th>Domain Custom</th>
-                        <th>SSL</th>
-                        <th>Kemudahan</th>
-                        <th>Kustomisasi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>GitHub Pages</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-minus"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td>Menengah</td>
-                        <td>Terbatas</td>
-                    </tr>
-                    <tr>
-                        <td>Netlify</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td>Mudah</td>
-                        <td>Luas</td>
-                    </tr>
-                    <tr>
-                        <td>Vercel</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td>Mudah</td>
-                        <td>Luas</td>
-                    </tr>
-                    <tr>
-                        <td>Firebase</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td>Menengah</td>
-                        <td>Luas</td>
-                    </tr>
-                    <tr>
-                        <td>Cloudflare</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td>Mudah</td>
-                        <td>Luas</td>
-                    </tr>
-                    <tr>
-                        <td>Hosting Berbayar</td>
-                        <td><i class="fas fa-times"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td>Menengah</td>
-                        <td>Sangat Luas</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="main-content container">
+        <div class="tabs">
+            <a href="#" class="active">Kalkulator Nutrisi</a>
+            <a href="#">Rencana Makan</a>
+            <a href="#">Log Makanan</a>
         </div>
+        
+        <div class="calculator-layout">
+            
+            <div class="input-panel">
+                <h2><i class="fas fa-database"></i> Data Diri & Aktivitas</h2>
+                <div class="form-group">
+                    <label for="gender">Jenis Kelamin</label>
+                    <select id="gender">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="male">Pria</option>
+                        <option value="female">Wanita</option>
+                    </select>
+                </div>
 
-        <div class="comparison">
-            <h2><i class="fas fa-file-download"></i> Cara Download & Simpan File Website</h2>
-            <div class="method-steps">
-                <h3>Langkah-langkah:</h3>
-                <ol>
-                    <li>Buka teks editor (VS Code, Notepad++, Sublime Text, dll)</li>
-                    <li>Salin kode HTML yang telah dibuat</li>
-                    <li>Buat file baru dengan nama <code>index.html</code></li>
-                    <li>Tempel kode HTML ke dalam file</li>
-                    <li>Simpan file</li>
-                    <li>Buka file di browser untuk testing</li>
-                </ol>
-                
-                <div class="note">
-                    <strong>Tips:</strong> Untuk testing lokal, cukup buka file <code>index.html</code> langsung di browser. 
-                    Website akan berfungsi penuh meski tanpa server.
+                <div class="form-group">
+                    <label for="age">Usia (tahun)</label>
+                    <input type="number" id="age" placeholder="Masukkan usia Anda">
                 </div>
                 
-                <h3>Struktur File yang Diperlukan:</h3>
-                <div class="code-block">
-                    project-folder/<br>
-                    ├── index.html&nbsp;&nbsp;&nbsp;&nbsp;(file utama)<br>
-                    └── assets/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(folder untuk gambar, dll - opsional)
+                <div class="form-group">
+                    <label for="weight">Berat Badan (kg)</label>
+                    <input type="number" id="weight" placeholder="Masukkan berat badan">
+                </div>
+
+                <div class="form-group">
+                    <label for="height">Tinggi Badan (cm)</label>
+                    <input type="number" id="height" placeholder="Masukkan tinggi badan">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">Tingkat Aktivitas</label>
+                    <select id="activity">
+                        <option value="">Pilih Tingkat Aktivitas</option>
+                        <option value="sedentary">Sangat Ringan</option>
+                        <option value="light">Ringan</option>
+                        <option value="moderate">Sedang</option>
+                        <option value="active">Berat</option>
+                        <option value="very_active">Sangat Berat</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="goal">Tujuan Diet</label>
+                    <select id="goal">
+                        <option value="maintain">Pertahankan Berat Badan</option>
+                        <option value="mild_loss">Penurunan Ringan</option>
+                        <option value="fast_loss">Penurunan Cepat</option>
+                        <option value="gain">Penambahan Berat Badan</option>
+                    </select>
+                </div>
+                
+                <button id="calculate-btn">Hitung Kebutuhan Nutrisi</button>
+            </div>
+
+            <div class="result-panel">
+                <h2><i class="fas fa-calculator"></i> Hasil Perhitungan</h2>
+                <div id="calculation-result">
+                    <p>Masukkan data diri dan tujuan diet Anda untuk melihat perhitungan kebutuhan nutrisi harian.</p>
+                    </div>
+            </div>
+            
+        </div>
+        
+        <h2 class="section-title"><i class="fas fa-utensils"></i> Resep Pilihan</h2>
+        <div class="recipes-grid">
+            <div class="recipe-card">
+                <div class="recipe-icon"><i class="fas fa-egg"></i></div> 
+                <h3>Omelet Sayuran</h3>
+                <p class="recipe-meta">15 menit &bull; **280 kalori**</p>
+                <p class="recipe-desc">Omelet dengan campuran bayam, jamur, dan tomat, kaya protein dan serat.</p>
+                <div class="recipe-tags">
+                    <span class="tag tag-sarapan">Sarapan</span>
+                    <span class="tag tag-protein">Protein Tinggi</span>
+                    <span class="tag tag-karbo">Rendah Karbohidrat</span>
                 </div>
             </div>
-        </div>
-
-        <div class="comparison">
-            <h2><i class="fas fa-question-circle"></i> FAQ - Pertanyaan Umum</h2>
-            <div class="method-steps">
-                <h3>1. Mana platform terbaik untuk pemula?</h3>
-                <p><strong>Netlify</strong> atau <strong>Vercel</strong> karena kemudahan penggunaan dan deploy otomatis dari GitHub.</p>
-                
-                <h3>2. Apakah website bisa diakses via smartphone?</h3>
-                <p>Ya, semua platform di atas menghasilkan website yang responsive dan bisa diakses dari perangkat apapun.</p>
-                
-                <h3>3. Berapa biaya untuk hosting gratis?</h3>
-                <p>Semua platform yang ditandai dengan tombol hijau benar-benar gratis untuk penggunaan dasar.</p>
-                
-                <h3>4. Bagaimana cara mendapatkan domain custom?</h3>
-                <p>Anda bisa membeli domain dari penyedia seperti Namecheap, GoDaddy, atau langsung dari platform hosting.</p>
+            
+            <div class="recipe-card">
+                <div class="recipe-icon"><i class="fas fa-drumstick-bite"></i></div> 
+                <h3>Ayam Panggang Mediterania</h3>
+                <p class="recipe-meta">40 menit &bull; **420 kalori**</p>
+                <p class="recipe-desc">Ayam panggang dengan rempah mediterania, disajikan dengan sayuran.</p>
+                <div class="recipe-tags">
+                    <span class="tag tag-siang">Makan Siang</span>
+                    <span class="tag tag-protein">Protein</span>
+                    <span class="tag tag-sehat">Sehat</span>
+                </div>
+            </div>
+            
+            <div class="recipe-card">
+                <div class="recipe-icon"><i class="fas fa-fish"></i></div> 
+                <h3>Salmon Bakar dengan Quinoa</h3>
+                <p class="recipe-meta">30 menit &bull; **480 kalori**</p>
+                <p class="recipe-desc">Salmon kaya omega-3 disajikan dengan quinoa dan asparagus.</p>
+                <div class="recipe-tags">
+                    <span class="tag tag-malam">Makan Malam</span>
+                    <span class="tag tag-omega">Omega-3</span>
+                    <span class="tag tag-protein">Protein</span>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Panduan Publish Website &copy; 2023 | NutriCalc - Kalkulator BMR & Nutrisi</p>
+        <p>NutriPlan - Kalkulator Kebutuhan Nutrisi Harian &copy; 2023</p>
+        <p class="disclaimer">Disclaimer: Hasil perhitungan ini adalah estimasi. Konsultasikan dengan ahli gizi untuk rekomendasi yang lebih personal.</p>
     </footer>
+
+    <script src="nutriplan.js"></script> 
 </body>
-
 </html>
-
