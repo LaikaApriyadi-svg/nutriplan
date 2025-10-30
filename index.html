@@ -5,138 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriPlan - Kalkulator Nutrisi Harian</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="nutriplan.css"> 
+    <link rel="stylesheet" href="nutriplan.css">
 </head>
 <body>
+    
     <header class="navbar">
         <div class="logo">
-            <i class="fas fa-apple-alt"></i> 
-            <span>NutriPlan</span>
+            <i class="fas fa-apple-alt"></i> <span>NutriPlan</span>
         </div>
         <nav>
-            <a href="#" class="active">Beranda</a>
-            <a href="#">Kalkulator</a>
-            <a href="#">Resep</a>
-            <a href="#">Log Makanan</a>
-            <a href="#">Tentang</a>
+            <a href="#" class="nav-link active" data-page="home">Beranda</a>
+            <a href="#" class="nav-link" data-page="kalkulator">Kalkulator</a>
+            <a href="#" class="nav-link" data-page="resep">Resep</a>
+            <a href="#" class="nav-link" data-page="log">Log Makanan</a>
+            <a href="#" class="nav-link" data-page="tentang">Tentang</a>
         </nav>
     </header>
 
-    <div class="main-content container">
-        <div class="tabs">
-            <a href="#" class="active">Kalkulator Nutrisi</a>
-            <a href="#">Rencana Makan</a>
-            <a href="#">Log Makanan</a>
-        </div>
+    <div class="container">
         
-        <div class="calculator-layout">
-            
-            <div class="input-panel">
-                <h2><i class="fas fa-database"></i> Data Diri & Aktivitas</h2>
-                <div class="form-group">
-                    <label for="gender">Jenis Kelamin</label>
-                    <select id="gender">
-                        <option value="">Pilih Jenis Kelamin</option>
-                        <option value="male">Pria</option>
-                        <option value="female">Wanita</option>
-                    </select>
-                </div>
+        <div id="home" class="page-content active">
 
-                <div class="form-group">
-                    <label for="age">Usia (tahun)</label>
-                    <input type="number" id="age" placeholder="Masukkan usia Anda">
-                </div>
-                
-                <div class="form-group">
-                    <label for="weight">Berat Badan (kg)</label>
-                    <input type="number" id="weight" placeholder="Masukkan berat badan">
-                </div>
-
-                <div class="form-group">
-                    <label for="height">Tinggi Badan (cm)</label>
-                    <input type="number" id="height" placeholder="Masukkan tinggi badan">
-                </div>
-
-                <div class="form-group">
-                    <label for="activity">Tingkat Aktivitas</label>
-                    <select id="activity">
-                        <option value="">Pilih Tingkat Aktivitas</option>
-                        <option value="sedentary">Sangat Ringan</option>
-                        <option value="light">Ringan</option>
-                        <option value="moderate">Sedang</option>
-                        <option value="active">Berat</option>
-                        <option value="very_active">Sangat Berat</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="goal">Tujuan Diet</label>
-                    <select id="goal">
-                        <option value="maintain">Pertahankan Berat Badan</option>
-                        <option value="mild_loss">Penurunan Ringan</option>
-                        <option value="fast_loss">Penurunan Cepat</option>
-                        <option value="gain">Penambahan Berat Badan</option>
-                    </select>
-                </div>
-                
-                <button id="calculate-btn">Hitung Kebutuhan Nutrisi</button>
+            <div class="tabs">
+                <a href="#" class="tab-link active" data-tab="kalkulator-tab">Kalkulator Nutrisi</a>
+                <a href="#" class="tab-link" data-tab="rencana">Rencana Makan</a>
+                <a href="#" class="tab-link" data-tab="log-tab">Log Makanan</a>
             </div>
 
-            <div class="result-panel">
-                <h2><i class="fas fa-calculator"></i> Hasil Perhitungan</h2>
-                <div id="calculation-result">
-                    <p>Masukkan data diri dan tujuan diet Anda untuk melihat perhitungan kebutuhan nutrisi harian.</p>
+            <div class="tab-content-wrapper">
+                
+                <div id="kalkulator-tab" class="tab-pane active">
+                    <div class="calculator-layout">
+                        
+                        <div class="input-panel">
+                            <h2><i class="fas fa-user-edit"></i> Data Diri & Aktivitas</h2>
+                            
+                            <div class="form-group">
+                                <label for="gender">Jenis Kelamin</label>
+                                <select id="gender">
+                                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                    <option value="male">Pria</option>
+                                    <option value="female">Wanita</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="age">Usia (tahun)</label>
+                                <input type="number" id="age" placeholder="Masukkan usia Anda">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="weight">Berat Badan (kg)</label>
+                                <input type="number" id="weight" placeholder="Masukkan berat badan">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="height">Tinggi Badan (cm)</label>
+                                <input type="number" id="height" placeholder="Masukkan tinggi badan">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="activity">Tingkat Aktivitas</label>
+                                <select id="activity">
+                                    <option value="" disabled selected>Pilih Tingkat Aktivitas</option>
+                                    <option value="sedentary">Sangat Ringan (Bekerja di meja)</option>
+                                    <option value="light">Ringan (Latihan 1-3 hari/minggu)</option>
+                                    <option value="moderate">Sedang (Latihan 3-5 hari/minggu)</option>
+                                    <option value="active">Aktif (Latihan 6-7 hari/minggu)</option>
+                                    <option value="very_active">Sangat Aktif (2x latihan sehari)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="goal">Tujuan Diet</label>
+                                <select id="goal">
+                                    <option value="maintain">Pertahankan Berat Badan</option>
+                                    <option value="mild_loss">Turunkan Berat Badan (Ringan)</option>
+                                    <option value="fast_loss">Turunkan Berat Badan (Cepat)</option>
+                                    <option value="gain">Tambah Berat Badan</option>
+                                </select>
+                            </div>
+                            
+                            <button id="calculate-btn">Hitung Kebutuhan Nutrisi</button>
+                        </div>
+                        
+                        <div class="result-panel">
+                            <h2><i class="fas fa-calculator"></i> Hasil Perhitungan</h2>
+                            <div id="calculation-result">
+                                <p>Masukkan data diri dan tujuan diet Anda untuk melihat perhitungan kebutuhan nutrisi harian.</p>
+                            </div>
+                        </div>
                     </div>
-            </div>
-            
+
+                    <h2 class="section-title"><i class="fas fa-utensils"></i> Resep Pilihan</h2>
+                    <div class="recipes-grid">
+                        <div class="recipe-card">
+                            <div class="recipe-icon"><i class="fas fa-egg"></i></div>
+                            <h3>Omelet Sayuran</h3>
+                            <p class="recipe-meta">15 menit &bull; **280 kalori**</p>
+                            <p class="recipe-desc">Omelet dengan campuran bayam, jamur, dan tomat, kaya protein dan serat.</p>
+                            <div class="recipe-tags">
+                                <span class="tag-sarapan">Sarapan</span>
+                                <span class="tag-protein">Protein Tinggi</span>
+                                <span>Rendah Karbohidrat</span>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <div class="recipe-icon"><i class="fas fa-drumstick-bite"></i></div>
+                            <h3>Ayam Panggang Mediterania</h3>
+                            <p class="recipe-meta">40 menit &bull; **420 kalori**</p>
+                            <p class="recipe-desc">Ayam panggang dengan rempah mediterania, disajikan dengan sayuran.</p>
+                            <div class="recipe-tags">
+                                <span>Makan Siang</span>
+                                <span class="tag-protein">Protein</span>
+                                <span>Sehat</span>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <div class="recipe-icon"><i class="fas fa-fish"></i></div>
+                            <h3>Salmon Bakar dengan Quinoa</h3>
+                            <p class="recipe-meta">30 menit &bull; **480 kalori**</p>
+                            <p class="recipe-desc">Salmon kaya omega-3 disajikan dengan quinoa dan asparagus.</p>
+                            <div class="recipe-tags">
+                                <span>Makan Malam</span>
+                                <span>Omega-3</span>
+                                <span class="tag-protein">Protein</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div id="rencana" class="tab-pane hidden">
+                    <div class="plan-section">
+                        <h2><i class="fas fa-calendar-alt"></i> Rencana Makan Mingguan Anda</h2>
+                        <p class="subtitle-plan">Rencana ini disesuaikan berdasarkan target kalori Anda.</p>
+                        
+                        <div class="plan-card">
+                            <div class="day-header">
+                                <h3>Senin</h3>
+                                <span class="total-cal-day">~1800 Kalori</span>
+                            </div>
+                            <ul class="meal-list">
+                                <li><i class="fas fa-sun"></i> Sarapan: Yogurt Greek dengan Buah Berry (300 Kal)</li>
+                                <li><i class="fas fa-cloud-sun"></i> Makan Siang: Salad Ayam Caesar (550 Kal)</li>
+                                <li><i class="fas fa-moon"></i> Makan Malam: Nasi Merah dan Ikan Kukus (700 Kal)</li>
+                            </ul>
+                            <button class="btn-view-detail">Lihat Detail Resep</button>
+                        </div>
+                        <div class="plan-generation">
+                            <button class="btn-generate"><i class="fas fa-magic"></i> Buat Rencana Makan Baru</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="log-tab" class="tab-pane hidden">
+                    <div class="log-section">
+                        <h2><i class="fas fa-book"></i> Catat Log Makanan Harian Anda</h2>
+                        <p class="subtitle-plan">Lihat riwayat dan pantau kemajuan asupan nutrisi Anda.</p>
+
+                        <div class="log-form-card">
+                            <h3>Catat Makanan Hari Ini</h3>
+                            <div class="form-group">
+                                <label for="meal-type">Waktu Makan</label>
+                                <select id="meal-type">
+                                    <option value="sarapan">Sarapan</option>
+                                    <option value="makan_siang">Makan Siang</option>
+                                    <option value="makan_malam">Makan Malam</option>
+                                    <option value="snack">Camilan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="food-name">Nama Makanan</label>
+                                <input type="text" id="food-name" placeholder="Contoh: Nasi Goreng, Telur Rebus">
+                            </div>
+                            <div class="form-group">
+                                <label for="calories-log">Kalori (Kkal)</label>
+                                <input type="number" id="calories-log" placeholder="Contoh: 350">
+                            </div>
+                            <button class="btn-log-add"><i class="fas fa-plus"></i> Tambahkan Makanan</button>
+                        </div>
+
+                        <h3 class="log-history-title">Riwayat Log Makanan</h3>
+                        <ul class="log-history-list">
+                            <li><span>24 Oktober 2025:</span> Total 1780 Kkal</li>
+                            <li><span>23 Oktober 2025:</span> Total 1850 Kkal</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div id="resep" class="page-content hidden">
+            <h2 class="section-title"><i class="fas fa-search"></i> Cari Resep Favorit Anda</h2>
+            <p>Di sini akan ditampilkan daftar lengkap semua resep yang tersedia untuk filter dan pencarian.</p>
+            <div class="recipes-grid">
+                </div>
         </div>
         
-        <h2 class="section-title"><i class="fas fa-utensils"></i> Resep Pilihan</h2>
-        <div class="recipes-grid">
-            <div class="recipe-card">
-                <div class="recipe-icon"><i class="fas fa-egg"></i></div> 
-                <h3>Omelet Sayuran</h3>
-                <p class="recipe-meta">15 menit &bull; **280 kalori**</p>
-                <p class="recipe-desc">Omelet dengan campuran bayam, jamur, dan tomat, kaya protein dan serat.</p>
-                <div class="recipe-tags">
-                    <span class="tag tag-sarapan">Sarapan</span>
-                    <span class="tag tag-protein">Protein Tinggi</span>
-                    <span class="tag tag-karbo">Rendah Karbohidrat</span>
-                </div>
-            </div>
-            
-            <div class="recipe-card">
-                <div class="recipe-icon"><i class="fas fa-drumstick-bite"></i></div> 
-                <h3>Ayam Panggang Mediterania</h3>
-                <p class="recipe-meta">40 menit &bull; **420 kalori**</p>
-                <p class="recipe-desc">Ayam panggang dengan rempah mediterania, disajikan dengan sayuran.</p>
-                <div class="recipe-tags">
-                    <span class="tag tag-siang">Makan Siang</span>
-                    <span class="tag tag-protein">Protein</span>
-                    <span class="tag tag-sehat">Sehat</span>
-                </div>
-            </div>
-            
-            <div class="recipe-card">
-                <div class="recipe-icon"><i class="fas fa-fish"></i></div> 
-                <h3>Salmon Bakar dengan Quinoa</h3>
-                <p class="recipe-meta">30 menit &bull; **480 kalori**</p>
-                <p class="recipe-desc">Salmon kaya omega-3 disajikan dengan quinoa dan asparagus.</p>
-                <div class="recipe-tags">
-                    <span class="tag tag-malam">Makan Malam</span>
-                    <span class="tag tag-omega">Omega-3</span>
-                    <span class="tag tag-protein">Protein</span>
+        <div id="log" class="page-content hidden">
+            <h2 class="section-title"><i class="fas fa-history"></i> Log Makanan Mingguan</h2>
+            <p>Ini adalah tampilan log harian yang ringkas.</p>
+        </div>
+
+        <div id="tentang" class="page-content hidden">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Tentang NutriPlan</h2>
+            <div class="plan-section">
+                <p>NutriPlan adalah aplikasi web yang dirancang untuk membantu Anda menghitung kebutuhan nutrisi harian (TDEE/BMR) dan mengelola rencana diet Anda. Kami menggunakan formula ilmiah untuk estimasi kalori yang akurat.</p>
+                <div class="team-info" style="margin-top: 20px;">
+                    <h3>Dikembangkan oleh:</h3>
+                    <p>Tim Pengembang Frontend, Tahun 2025.</p>
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
     <footer>
         <p>NutriPlan - Kalkulator Kebutuhan Nutrisi Harian &copy; 2023</p>
         <p class="disclaimer">Disclaimer: Hasil perhitungan ini adalah estimasi. Konsultasikan dengan ahli gizi untuk rekomendasi yang lebih personal.</p>
     </footer>
 
-    <script src="nutriplan.js"></script> 
+    <script src="nutriplan.js"></script>
 </body>
 </html>
